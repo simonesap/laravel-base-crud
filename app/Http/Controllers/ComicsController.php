@@ -17,7 +17,9 @@ class ComicsController extends Controller
     {
         $comics = config('comics');
 
-        return view('index', compact('comics'));
+        $comic = Comic::all();
+
+        return view('pages.comics.index', compact('comic'));
     }
 
     /**
@@ -51,9 +53,9 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comic $comic)
     {
-        //
+        return view('pages.comics.show', compact('comic'));
     }
 
     /**
@@ -64,7 +66,7 @@ class ComicsController extends Controller
      */
     public function edit(Comic $comics)
     {
-        return view( 'comics.edit', compact(''))
+        // return view( 'comics.edit', compact(''))
     }
 
     /**
@@ -85,8 +87,9 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comics)
     {
-        //
+        // $comics->delete();
+        // return redirect()->route('comics.index')->with('message', "hai eliminato con successo: $comics->name")
     }
 }
