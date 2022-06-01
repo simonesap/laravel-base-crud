@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="{{ route('comics.index')}}">Comics</a>
-          <a class="nav-link" href="#">Add comics</a>
+          <a class="nav-link" href="{{ route('comics.create')}}">Add comics</a>
           {{-- <a class="nav-link" href="#">Pricing</a> --}}
         </div>
       </div>

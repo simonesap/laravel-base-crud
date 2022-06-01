@@ -29,7 +29,7 @@ class ComicsController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.comics.create');
     }
 
     /**
@@ -39,12 +39,16 @@ class ComicsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        // $request->validate(
-        //     [
-        //         'name' => 'required';
-        //     ]
-        //     );
+
+    {   // Metodo lento
+        $data = $request->all();
+
+        $new_data = new Comic();
+        $new_data->fill($data);
+        $new_data->save();
+
+        return redirect()->route( 'comics.show', $new_data );
+
     }
 
     /**

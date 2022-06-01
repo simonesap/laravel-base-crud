@@ -13,9 +13,15 @@
         @include('includes.header')
     </header>
 
-    <main class="container">
+    <main class="">
 
-        @yield('content')
+        <div class="container">
+
+            @yield('content')
+
+            @yield('create')
+
+        </div>
 
     </main>
 
