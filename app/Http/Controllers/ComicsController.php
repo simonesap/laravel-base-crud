@@ -38,7 +38,11 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate(
+        //     [
+        //         'name' => 'required';
+        //     ]
+        //     );
     }
 
     /**
@@ -58,9 +62,9 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comics)
     {
-        //
+        return view( 'comics.edit', compact(''))
     }
 
     /**

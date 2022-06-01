@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Models\Comic;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(ComicsSeeder::class);
+        $this->call(ComicsSeeder::class);
     }
 }
