@@ -41,10 +41,9 @@ class ComicsController extends Controller
     public function store(Request $request)
 
     {
-
         // Validazione
         $request->validate([
-            'title - description - thumb - price - series - sale_date - type' => 'required'
+            'title','description','thumb','price','series','sale_date','type' => 'required'
         ]);
 
         // Ascolto
@@ -57,7 +56,7 @@ class ComicsController extends Controller
         $new_data->save();
 
 
-        return redirect()->route( 'comics.show', $new_data );
+        return redirect()->route( 'comics.show', $new_data )->with("message", "hai creato con successo: $new_data->title");
 
     }
 
@@ -94,7 +93,7 @@ class ComicsController extends Controller
     {
         // Validazione
         $request->validate([
-            'title - description - thumb - price - series - sale_date - type' => 'required'
+            'title','description','thumb','price','series','sale_date','type' => 'required'
         ]);
 
         // Ascolto
@@ -105,7 +104,7 @@ class ComicsController extends Controller
         $comic->save();
 
 
-        return redirect()->route( 'comics.show', $comic );
+        return redirect()->route( 'comics.show', $comic )->with("message", "hai aggiornato con successo: $comic->title");
     }
 
     /**
@@ -114,9 +113,9 @@ class ComicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comic $com)
+    public function destroy(Comic $comic)
     {
-        $com->delete();
-        return redirect()->route('comics.index', $com)->with("message", "hai eliminato con successo: $com->title");
+        $comic->delete();
+        return redirect()->route('comics.index', $comic)->with("message", "hai eliminato con successo: $comic->title");
     }
 }

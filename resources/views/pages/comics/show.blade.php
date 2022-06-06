@@ -4,9 +4,9 @@
 
 @section('content')
 
-    {{-- @if (session('message'))
+    @if (session('message'))
         <div>{{session('message')}}</div>
-    @endif --}}
+    @endif
 
         <table class="table">
             <thead>
